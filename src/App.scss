@@ -13,7 +13,7 @@
 
 
 .App-header {
-  background-color: #282c34;
+  background-color: #3c0d0d;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,58 +27,39 @@
 .App-link {
   color: #61dafb;
 }
-.navBar {
-  display:flex;
-  align-items: center;
-  justify-content:flex-start;
-  background-color: red;
-  margin-top: 10px;
-  min-width: 65%;
-  height: 15%;
-  border-radius: 25px;
-  position: sticky;
-  top: 0;
-  z-index:100;
-  transition: all 0.3 ease;
-}
+// MUI Navbar Overrides
+.MuiAppBar-root {
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 
-#hanniImg {
-  width: 50px;
-  height: auto;
-  margin-left: 10px;
-  margin-right: auto;
-  border-radius: 30%;
-  padding:10px;
-}
-
-.navBarTabs{
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-size: 20px;
-  gap: 40px;
-  padding:10px;
-  a {
-    text-decoration:none;
+  .MuiToolbar-root {
+    @media (max-width: 600px) {
+      flex-direction: column;
+      padding: 10px;
+    }
   }
-}
 
-.navBarLinks {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: auto;
-  gap: 20px;
-  padding:10px;
-  margin-right: 10px;
-}
+  .MuiButton-root {
+    text-transform: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 
-#gitHubImg, #linkedInImg {
-  @include link-size(30px);
+    &:hover {
+      color: #61dafb;
+    }
+  }
+
+  .MuiIconButton-root {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .heading {
   width: 65%;
-  background-color: darkcyan;
 }
 @mixin heading-layout(
   $direction: column,
@@ -94,12 +75,12 @@
 }
 .headingGreet{
   @include heading-layout;
-  margin-top:300px;
+  margin-top:270px;
 }
 .heading h1{
   @include heading-layout;
   margin-bottom: 0; 
-  background-color: blue;
+
 }
 
 .introDesc{
@@ -107,4 +88,3 @@
   line-height: 1.5;
   text-align: left;
 }
-
