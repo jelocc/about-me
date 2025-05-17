@@ -1,6 +1,6 @@
 import './App.scss';
 import React, { useState }from 'react';
-import { AppBar, Toolbar, Typography, Button, Box, IconButton } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box, IconButton, Card, CardMedia, CardContent, Grid } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Avatar from '@mui/material/Avatar';
@@ -38,25 +38,25 @@ function App() {
               justifyContent: 'center'
             }}>
                 <Button color="inherit" sx={{
-                  fontSize: '15px',
+                  fontSize: '18px',
                   '&:hover' : {
                     color: '#61adfb'
                   }
                 }}> Home</Button> 
                 <Button color="inherit" sx={{
-                  fontSize: '15px',
+                  fontSize: '18px',
                   '&:hover' : {
                     color: '#61adfb'
                   }
                 }}> Projects</Button> 
                 <Button color="inherit" sx={{
-                  fontSize: '15px',
+                  fontSize: '18px',
                   '&:hover' : {
                     color: '#61adfb'
                   }
                 }}> About</Button> 
                 <Button color="inherit" sx={{
-                  fontSize: '15px',
+                  fontSize: '18px',
                   '&:hover' : {
                     color: '#61adfb'
                   }
@@ -77,7 +77,7 @@ function App() {
                           fontSize: '30px'
                         }}/>
                     </IconButton>
-                    <IconButton color="inherit" href="linkedin.com/in/ramil-rosal-025983363" target="_blank" sx={{
+                    <IconButton color="inherit" href="https://linkedin.com/in/ramil-rosal-025983363" target="_blank" sx={{
                        '&:hover' : {
                     color: '#61adfb'
                        }
@@ -89,14 +89,39 @@ function App() {
                 </Box>
             </Toolbar>
         </AppBar>
-        <div className="heading"> 
-          <p className="headingGreet"> Hey there!
-          {String.fromCodePoint(0x1F44B, 0x1F3FC)}
-          </p>
-          <h1>I am KING <br /> a Software Engineer.</h1>
-          <br /><h4 className="introDesc"> I am a Computer Science Graduate. <br />Looking to learn a lot about Software Development. </h4>
-        </div>
-
+        <Box className="homePage" marginTop = '250px' width="50%"sx={{
+        }}>
+          <p className="headingGreet">Hey there! {String.fromCodePoint(0x1F44B, 0x1F3FC)}</p>
+          <h1 className="heading">I am KING <br /> a Software Engineer.</h1>
+          <br /><h4 className="introDesc"> I am a Computer Science Graduate. I create clean, modern, and responsive projects. </h4>
+        </Box>
+        <Box className="projectPage" marginTop = '250px' width="100%"sx={{
+          p: 4
+        }}>
+          <Card sx={{ height: '100%' }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image="https://via.placeholder.com/300"
+                  alt="Project Image"
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Project Title
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    This is a description of your project. You can add details about the technologies used,
+                    features implemented, and any other relevant information.
+                  </Typography>
+                </CardContent>
+              </Grid>
+            </Grid>
+          </Card>
+        </Box>
       </header>
     </div>
     

@@ -22,9 +22,7 @@
   color: #61dafb;
 }
 
-.heading {
-  width: 65%;
-}
+
 @mixin heading-layout(
   $direction: column,
   $text-align: left,
@@ -37,18 +35,20 @@
   align-items: $align-items;
   width: $width;
 }
-.headingGreet{
+.headingGreet {
   @include heading-layout;
-  margin-top:270px;
-}
-.heading h1{
-  @include heading-layout;
-  margin-bottom: 0; 
-
 }
 
-.introDesc{
+.heading {
+  @include heading-layout;
+  margin-bottom: 0;
+  text-align: left;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.introDesc {
   margin: 0;
   line-height: 1.5;
-  text-align: left;
+  text-align: justify;
 }
