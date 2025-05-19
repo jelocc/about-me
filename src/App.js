@@ -104,8 +104,8 @@ function App() {
                 <CardMedia
                   component="img"
                   height="200"
-                  image="https://via.placeholder.com/300"
-                  alt="Project Image"
+                  image="/img/HydroFlux-image.png"
+                  alt="HydroFlux Image"
                 />
               </Grid>
               <Grid item xs={12} md={6}>
