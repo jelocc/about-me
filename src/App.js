@@ -1,5 +1,5 @@
 import './App.scss';
-import React, { useState }from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, IconButton, Card, CardMedia, CardContent, Grid } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -7,6 +7,24 @@ import Avatar from '@mui/material/Avatar';
 
 function App() {
   const [showTabs, setShowTabs] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const projectPage = document.querySelector('.projectPage');
+      const aboutPage = document.querySelector('.aboutPage');
+      if (window.scrollY > 500) {
+        projectPage.style.visibility = 'visible';
+        aboutPage.style.visibility = 'visible';
+      } else {
+        projectPage.style.visibility = 'hidden';
+        aboutPage.style.visibility = 'hidden';
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -43,18 +61,19 @@ function App() {
                     color: '#61adfb'
                   }
                 }}> Home</Button> 
+                 <Button color="inherit" sx={{
+                  fontSize: '18px',
+                  '&:hover' : {
+                    color: '#61adfb'
+                  }
+                }}> About</Button> 
                 <Button color="inherit" sx={{
                   fontSize: '18px',
                   '&:hover' : {
                     color: '#61adfb'
                   }
                 }}> Projects</Button> 
-                <Button color="inherit" sx={{
-                  fontSize: '18px',
-                  '&:hover' : {
-                    color: '#61adfb'
-                  }
-                }}> About</Button> 
+               
                 <Button color="inherit" sx={{
                   fontSize: '18px',
                   '&:hover' : {
@@ -95,15 +114,27 @@ function App() {
           <h1 className="heading">I am KING <br /> a Software Engineer.</h1>
           <br /><h4 className="introDesc"> I am a Computer Science Graduate. I create clean, modern, and responsive projects. </h4>
         </Box>
-        <Box className="projectPage" marginTop = '250px' width="100%"sx={{
+
+        <Box className="aboutPage" marginTop = '250px' width="100%"sx={{
+          visibility: 'hidden',
           p: 4
         }}>
-          <Card sx={{ height: '100%' }}>
+
+        </Box>
+
+        <Box className="projectPage" marginTop = '250px' width="100%"sx={{
+          visibility: 'hidden',
+          p: 4
+        }}>
+          <Card sx={{ 
+            height: '100%',
+            borderRadius: '2.5%'
+            }}>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <CardMedia
                   component="img"
-                  height="200"
+                  height="300"
                   image="/img/HydroFlux-image.png"
                   alt="HydroFlux Image"
                 />
@@ -122,6 +153,7 @@ function App() {
             </Grid>
           </Card>
         </Box>
+
       </header>
     </div>
     
